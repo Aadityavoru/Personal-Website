@@ -37,7 +37,17 @@ const About = () => {
             {/* University Header */}
             <div className="flex flex-col md:flex-row md:items-start justify-between gap-6 mb-8">
               <div className="flex items-start gap-4">
-                <div className="text-5xl">🏛️</div>
+                <div className="w-16 h-16 rounded-xl bg-[#13294B] flex items-center justify-center p-2 overflow-hidden flex-shrink-0">
+                  <img 
+                    src="https://grainger.illinois.edu/themes/flavor_flavor_starter/images/block-i-logo-full-color-rgb.svg"
+                    alt="University of Illinois"
+                    className="w-full h-full object-contain"
+                    onError={(e) => {
+                      e.target.style.display = 'none'
+                      e.target.parentElement.innerHTML = '<span class="text-white font-mono font-bold text-2xl">I</span>'
+                    }}
+                  />
+                </div>
                 <div>
                   <h3 className="text-2xl sm:text-3xl font-mono font-bold text-off-white mb-2">
                     University of Illinois at Urbana-Champaign

@@ -9,7 +9,9 @@ const experiences = [
     type: 'Research',
     period: 'Aug 2025 – Present',
     badge: 'Provisional Patent Pending',
-    logo: '🔬',
+    logoUrl: 'https://grainger.illinois.edu/themes/flavor_flavor_starter/images/block-i-logo-full-color-rgb.svg',
+    logoAlt: 'University of Illinois',
+    logoBg: 'bg-[#13294B]',
     color: 'from-purple-500/20 to-purple-600/10',
     borderColor: 'border-purple-500/30',
     techStack: ['PyTorch', 'Open3D', 'CUDA', 'Python'],
@@ -22,12 +24,14 @@ const experiences = [
     impact: '80% GPU Memory Reduction'
   },
   {
-    company: 'Samsara Inc',
+    company: 'Samsara',
     location: 'San Francisco, CA',
     role: 'Embedded Software Research Intern',
     type: 'AI Infrastructure',
     period: 'May 2025 – Aug 2025',
-    logo: '🚛',
+    logoUrl: 'https://www.samsara.com/content/dam/samsara/us/en/logos/primary/samsara-logo-white-rgb.svg',
+    logoAlt: 'Samsara',
+    logoBg: 'bg-[#00A3E0]',
     color: 'from-green-500/20 to-green-600/10',
     borderColor: 'border-green-500/30',
     techStack: ['Go', 'TinyCLIP', 'gRPC', 'FastAPI', 'Docker', 'Redis', 'AWS S3'],
@@ -45,10 +49,12 @@ const experiences = [
     role: 'Robotics Research Intern',
     type: 'Research',
     period: 'Aug 2024 – May 2025',
-    logo: '🤖',
+    logoUrl: 'https://grainger.illinois.edu/themes/flavor_flavor_starter/images/block-i-logo-full-color-rgb.svg',
+    logoAlt: 'University of Illinois',
+    logoBg: 'bg-[#13294B]',
+    link: 'https://github.com/uiuc-iml/Robotic-Perception-Box',
     color: 'from-blue-500/20 to-blue-600/10',
     borderColor: 'border-blue-500/30',
-    link: 'https://github.com/uiuc-iml/Robotic-Perception-Box',
     techStack: ['C++', 'ROS 2', 'PyTorch', 'TensorFlow', 'CUDA', 'Gazebo', 'NVIDIA Jetson'],
     highlights: [
       'Developed perception system for humanoid robotic nurse enabling real-time scene understanding in hospitals',
@@ -64,10 +70,11 @@ const experiences = [
     role: 'Lead ML Infrastructure & Fullstack Engineer',
     type: 'Startup',
     period: 'Jan 2025 – June 2025',
-    logo: '🚀',
+    logoText: 'T',
+    logoBg: 'bg-gradient-to-br from-orange-500 to-red-500',
+    link: 'https://blueprint-trvise.web.app',
     color: 'from-orange-500/20 to-orange-600/10',
     borderColor: 'border-orange-500/30',
-    link: 'https://blueprint-trvise.web.app',
     techStack: ['React', 'Node.js', 'PostgreSQL', 'AWS RDS', 'Vertex AI', 'LangChain', 'Docker'],
     highlights: [
       'Built Blueprint-Trvise, a distributed platform with companion mobile app for non-CS creators to share projects',
@@ -78,6 +85,30 @@ const experiences = [
     impact: '10,000+ Users'
   }
 ]
+
+const CompanyLogo = ({ exp }) => {
+  if (exp.logoUrl) {
+    return (
+      <div className={`w-14 h-14 rounded-xl ${exp.logoBg} flex items-center justify-center p-2 overflow-hidden`}>
+        <img 
+          src={exp.logoUrl} 
+          alt={exp.logoAlt}
+          className="w-full h-full object-contain"
+          onError={(e) => {
+            e.target.style.display = 'none'
+            e.target.parentElement.innerHTML = `<span class="text-white font-mono font-bold text-xl">${exp.company.charAt(0)}</span>`
+          }}
+        />
+      </div>
+    )
+  }
+  
+  return (
+    <div className={`w-14 h-14 rounded-xl ${exp.logoBg} flex items-center justify-center`}>
+      <span className="text-white font-mono font-bold text-2xl">{exp.logoText || exp.company.charAt(0)}</span>
+    </div>
+  )
+}
 
 const Experience = () => {
   return (
@@ -115,7 +146,7 @@ const Experience = () => {
                 {/* Header */}
                 <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4 mb-6">
                   <div className="flex items-start gap-4">
-                    <div className="text-4xl">{exp.logo}</div>
+                    <CompanyLogo exp={exp} />
                     <div>
                       <div className="flex items-center gap-2 flex-wrap">
                         <h3 className="text-xl sm:text-2xl font-mono font-bold text-off-white">

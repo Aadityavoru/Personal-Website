@@ -47,7 +47,7 @@ const Hero = () => {
       >
         <motion.div variants={itemVariants} className="mb-4">
           <span className="inline-block px-4 py-2 bg-electric-blue/10 border border-electric-blue/30 rounded-full text-electric-blue text-sm font-mono">
-            Available for Full-Time Opportunities • May 2026
+            Available for Full-Time Opportunities — May 2026
           </span>
         </motion.div>
 
