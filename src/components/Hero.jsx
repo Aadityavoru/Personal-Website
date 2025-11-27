@@ -47,7 +47,7 @@ const Hero = () => {
       >
         <motion.div variants={itemVariants} className="mb-4">
           <span className="inline-block px-4 py-2 bg-electric-blue/10 border border-electric-blue/30 rounded-full text-electric-blue text-sm font-mono">
-            Available for Full-Time Opportunities — May 2026
+            Available for Internships or Full-Time Opportunities — May 2026
           </span>
         </motion.div>
 
@@ -62,7 +62,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-xl sm:text-2xl md:text-3xl font-mono text-electric-blue mb-6"
         >
-          AI & Software Engineer
+          AI, Robotics, & Software Infrastructure Engineer
         </motion.h2>
         
         <motion.p
